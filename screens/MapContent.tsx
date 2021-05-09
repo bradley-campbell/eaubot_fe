@@ -1,7 +1,10 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Callout } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import mapData from "../data/mapData";
+import fountainPinImg from "../assets/fountainPin.png";
+import { mapStyles } from "../data/mapConfig";
+
 // require("dotenv").config();
 
 const initialRegion = {
@@ -20,10 +23,12 @@ const MapContent = () => {
         initialRegion={initialRegion}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
+        customMapStyle={mapStyles}
       >
         {mapData.map((marker) => {
           return (
             <Marker
+              image={fountainPinImg}
               key={marker._id}
               coordinate={{
                 latitude: +marker.Latitude,

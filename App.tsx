@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import MapContent from "./screens/MapContent";
 import { StyleSheet, View } from "react-native";
-import { BottomNavigation, Text, Appbar } from "react-native-paper";
+import { BottomNavigation, Text, Appbar, Avatar } from "react-native-paper";
 
 const MusicRoute = () => <MapContent />;
 
@@ -34,6 +34,11 @@ export default function App() {
     <>
       <Appbar.Header>
         <Appbar.BackAction onPress={_goBack} />
+        <Avatar.Image
+          size={55}
+          source={require("./assets/Eaubot-full.png")}
+          style={styles.avatar}
+        />
         <Appbar.Content title="Title" subtitle="Subtitle" />
         <Appbar.Action icon="magnify" onPress={_handleSearch} />
         <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
@@ -56,5 +61,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  avatar: {
+    paddingTop: 5,
   },
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import mapData from "../data/mapData";
 // require("dotenv").config();
 
@@ -16,7 +16,11 @@ const initialRegion = {
 const MapContent = () => {
   return (
     <View style={styles.mapWrapper}>
-      <MapView initialRegion={initialRegion} style={styles.map}>
+      <MapView
+        initialRegion={initialRegion}
+        style={styles.map}
+        provider={PROVIDER_GOOGLE}
+      >
         {mapData.map((marker) => {
           return (
             <Marker
